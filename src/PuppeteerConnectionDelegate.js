@@ -1,10 +1,12 @@
 'use strict';
 
-const puppeteer = require('puppeteer'),
+const puppeteer = require('puppeteer-extra'),
     {ConnectionDelegate} = require('@nesk/rialto'),
     Logger = require('@nesk/rialto/src/node-process/Logger'),
     ConsoleInterceptor = require('@nesk/rialto/src/node-process/NodeInterceptors/ConsoleInterceptor'),
     StandardStreamsInterceptor = require('@nesk/rialto/src/node-process/NodeInterceptors/StandardStreamsInterceptor');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
 
 /**
  * Handle the requests of a connection to control Puppeteer.
